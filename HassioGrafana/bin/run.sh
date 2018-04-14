@@ -5,6 +5,11 @@
 ## Start InfluxDB
 /usr/bin/influxd run -config /etc/influxdb/influxdb.conf -pidfile /var/run/influxdb.pid &
 
+## Wait for InfluxDB to warm up
+echo "Waiting for InfluxDB to warm up..."
+sleep 5
+echo "...done!"
+
 ## Create Home Assistant DB
 /usr/bin/influx -execute 'create database home_assist'
 
