@@ -37,3 +37,16 @@ influxdb:
 
   You can omit the `host` part.
 
+### Configure Grafana
+
+To begin using the data from Home Assistant you have to create a datasource, you can use the following settings:
+
+  * _Name_: any name you want
+  * _Type_: InfluxDB
+  * _URL_: http://localhost:8086/
+  * _Access_: Proxy
+  * _Database_: home_assistant
+  * _User_: root
+
+## Enjoy!
+
