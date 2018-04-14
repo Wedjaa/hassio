@@ -28,6 +28,7 @@ ln -s /opt/grafana/data /data/grafana/data
 ln -s /opt/grafana/dashboards /data/grafana/dashboards 
 /opt/grafana/grafana-cli plugins update-all 
 mkdir /opt/grafana/conf
+mkdir /opt/grafana/datasources
 
 chmod a+x /usr/bin/config.pl
 chmod a+x /usr/bin/run.sh
