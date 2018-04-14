@@ -1,0 +1,45 @@
+{
+  "name": "Hassio Grafana",
+  "version": "5.0.4",
+  "webui": "[PROTO:ssl]://[HOST]:[PORT:3000]",
+  "slug": "grafana",
+  "description": "An addon that packs Grafana and InfluxDB",
+  "url": "https://github.com/Wedjaa/hassio",
+  "startup": "services",
+  "boot": "auto",
+  "ports": {
+    "8086/tcp": 8086,
+    "3000/tcp": 3000
+  },
+  "map": [
+    "ssl",
+    "config"
+  ],
+  "options": {
+    "ssl": false,
+    "username": "admin",
+    "password": "password",
+    "certfile": "fullchain.pem",
+    "keyfile": "privkey.pem",
+    "external_url": "https://grafana.duckdns.org:3000/",
+    "force_domain": false, 
+    "grafana_plugins": ["grafana-worldmap-panel"
+      , "grafana-piechart-panel"
+      , "briangann-gauge-panel"
+      , "neocat-cal-heatmap-panel"
+      , "briangann-datatable-panel"
+      , "vonage-status-panel"
+    ]
+  },
+  "schema": {
+    "ssl": "bool",
+    "username": "str",
+    "password": "str",
+    "certfile": "str",
+    "keyfile": "str",
+    "external_url": "str",
+    "force_domain": "bool",
+    "grafana_plugins": ["str"]
+  },
+  "timeout": 20
+}
