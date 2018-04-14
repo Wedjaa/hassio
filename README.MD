@@ -12,7 +12,7 @@ Currently this Addon is in Beta Stage -- use at your own risk.
 ## Installation
 
 Adding this add-ons repository to your Hass.io Home Assistant instance is
-pretty easy. Follow [the official instructions][third-party-addons] on the
+pretty easy. Follow [the official instructions](https://www.home-assistant.io/hassio/installing_third_party_addons/) on the
 website of Home Assistant, and use the following URL:
 
 ```txt
