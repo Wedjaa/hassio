@@ -18,3 +18,22 @@ website of Home Assistant, and use the following URL:
 ```txt
 https://github.com/Wedjaa/hassio
 ```
+
+## Configuration
+
+### Configure Home Assistant
+
+  If you're running this directly in hassio you should be able to access the InfluxDB for writing from HomeAssistant
+with the following configuration:
+
+```
+## InfluxDB - for Grafana
+influxdb:
+  host: 172.30.32.1
+  tags:
+    instance: hassio 
+    source: home_assistant
+```
+
+  You can omit the `host` part.
+
