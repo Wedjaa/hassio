@@ -25,7 +25,7 @@ then
   for plugin in ${PLUGINS}
   do
     echo "Installing Grafana Plugin: $plugin"
-    /opt/grafana/grafana-cli plugins --pluginsDir /data/grafana/plugins install "$plugin"
+    /opt/grafana/grafana-cli --pluginsDir /data/grafana/plugins plugins install "$plugin"
   done
 fi
 

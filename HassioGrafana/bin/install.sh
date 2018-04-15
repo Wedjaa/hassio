@@ -24,10 +24,9 @@ tar xf /tmp/grafana.tgz --strip-components=2 -C /opt/grafana
 mkdir -p /opt/grafana/dashboards /opt/grafana/data /opt/grafana/logs /opt/grafana/plugins 
 mkdir -p /var/lib/grafana/ /data/influxdb/meta /data/influxdb/data /data/influxdb/wal 
 
-/opt/grafana/grafana-cli plugins -pluginsDir /data/grafana/plugins  update-all 
+/opt/grafana/grafana-cli --pluginsDir /data/grafana/plugins plugins  update-all 
+
 mkdir /opt/grafana/conf
-mkdir /opt/grafana/provisioning
-mkdir /opt/grafana/provisioning/datasources
 
 chmod a+x /usr/bin/config.pl
 chmod a+x /usr/bin/run.sh
