@@ -14,13 +14,20 @@ echo "...done!"
 /usr/bin/influx -execute 'create database home_assistant'
 
 ## Install the requested plugins
-PLUGINS=$(jq -r  ".grafana_plugins[]"  /data/options.json)
-echo "Configured plugins: ${PLUGINS}"
-for plugin in ${PLUGINS}
-do
-  echo "Installing Grafana Plugin: $plugin"
-  /opt/grafana/grafana-cli plugins install "$plugin"
-done
+if [ ! -d /data/grafana ]
+then
+  mkdir /data/grafana
+  mkdir /data/grafana/data
+  mkdir /data/grafana/plugins
+
+  PLUGINS=$(jq -r  ".grafana_plugins[]"  /data/options.json)
+  echo "Configured plugins: ${PLUGINS}"
+  for plugin in ${PLUGINS}
+  do
+    echo "Installing Grafana Plugin: $plugin"
+    /opt/grafana/grafana-cli plugins --pluginsDir /data/grafana/plugins install "$plugin"
+  done
+fi
 
 if [ ! -f /data/defaults.ini ]
 then

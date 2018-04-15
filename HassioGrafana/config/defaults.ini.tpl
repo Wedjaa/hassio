@@ -13,7 +13,7 @@ instance_name = hassio_grafana
 [paths]
 # Path to where grafana can store temp files, sessions, and the sqlite3 db (if that is used)
 #
-data = data
+data = /data/grafana/data
 #
 # Directory where grafana can store logs
 #
@@ -21,7 +21,7 @@ logs = logs
 #
 # Directory where grafana will automatically scan and look for plugins
 #
-plugins = plugins
+plugins = /data/grafana/plugins
 
 #################################### Server ##############################
 [server]
