@@ -26,7 +26,7 @@ mkdir -p /var/lib/grafana/ /data/influxdb/meta /data/influxdb/data /data/influxd
 
 /opt/grafana/grafana-cli --pluginsDir /data/grafana/plugins plugins  update-all 
 
-mkdir /opt/grafana/conf
+mkdir /opt/grafana/conf /opt/grafana/datasources
 
 chmod a+x /usr/bin/config.pl
 chmod a+x /usr/bin/run.sh

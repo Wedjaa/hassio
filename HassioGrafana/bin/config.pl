@@ -32,7 +32,7 @@ secret_key=''.join(random.choice(string.ascii_uppercase + string.digits) for _ i
 with open('/opt/grafana/conf/defaults.ini.tpl', 'r') as tpl_file:
   tpl_config = tpl_file.read()
 
-with open("/data/defaults.ini", "w") as config_file:
+with open("/opt/grafana/conf/defaults.ini", "w") as config_file:
   config_file.write(tpl_config.format(
   WEB_PORT=web_port,
   WEB_PROTOCOL=web_protocol,

@@ -29,10 +29,7 @@ then
   done
 fi
 
-if [ ! -f /data/defaults.ini ]
-then
-  /usr/bin/config.pl
-fi
+/usr/bin/config.pl
 
 mkdir /data/dashboards
 
