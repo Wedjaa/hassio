@@ -19,7 +19,7 @@ else:
 
 if 'grafana_ext_url' in config:
   web_url=config['grafana_ext_url']
-  web_domain=web_url.split(“//”)[-1].split(“/”)[0]
+  web_domain=web_url.split("//")[-1].split("/")[0]
   force_domain=config['enforce_domain']
 else:
   web_url='http://localhost:%s' % web_port
