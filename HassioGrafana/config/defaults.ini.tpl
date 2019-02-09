@@ -231,13 +231,13 @@ org_role = Viewer
 
 #################################### Github Auth #########################
 [auth.github]
-enabled = true
+enabled = false
 allow_sign_up = true
 client_id = {WEB_URL}
 client_secret = {WEB_URL}
 scopes = user:email
-auth_url = {HASSIO_URL}/auth/authorize
-token_url = {HASSIO_URL}/auth/token
+auth_url = https://github.com/login/oauth/authorize
+token_url = https://github.com/login/oauth/access_token
 api_url = https://api.github.com/user
 team_ids =
 allowed_organizations =
@@ -275,9 +275,10 @@ allowed_organizations =
 
 #################################### Generic OAuth #######################
 [auth.generic_oauth]
-name = OAuth
+name = Home Assistant
 enabled = true
 allow_sign_up = true
+send_client_credentials_via_post = true
 client_id = {WEB_URL}
 client_secret = {WEB_URL}
 scopes = user:email
