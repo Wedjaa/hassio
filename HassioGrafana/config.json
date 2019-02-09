@@ -1,6 +1,6 @@
 {
   "name": "Hassio Grafana",
-  "version": "5.4.3.10",
+  "version": "5.4.3.11",
   "webui": "[PROTO:ssl]://[HOST]:[PORT:3000]",
   "slug": "grafana",
   "description": "An addon that packs Grafana and InfluxDB",
