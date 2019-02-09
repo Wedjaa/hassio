@@ -278,8 +278,8 @@ allowed_organizations =
 name = OAuth
 enabled = true
 allow_sign_up = true
-client_id = %(root_url)s
-client_secret = %(root_url)s
+client_id = {WEB_URL}
+client_secret = {WEB_URL}
 scopes = user:email
 auth_url = {HASSIO_URL}/auth/authorize
 token_url =
@@ -331,7 +331,7 @@ templates_pattern = emails/*.html
 mode = console file
 
 # Either "debug", "info", "warn", "error", "critical", default is "info"
-level = info
+level = {LOG_LEVEL}
 
 # optional settings to set different levels for specific loggers. Ex filters = sqlstore:debug
 filters =

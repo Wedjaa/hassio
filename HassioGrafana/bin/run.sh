@@ -31,8 +31,6 @@ fi
 
 /usr/bin/config.pl
 
-mkdir /data/dashboards
-
 ## Start Grafana
 /opt/grafana/grafana-server -homepath /opt/grafana
 

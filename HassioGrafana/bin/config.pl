@@ -17,6 +17,11 @@ else:
   ssl_cert=''
   ssl_key=''
 
+if 'log_level' in config:
+  log_level=config['log_level']
+else:
+  log_level='info'
+
 if 'grafana_ext_url' in config:
   web_url=config['grafana_ext_url']
   web_domain=web_url.split("//")[-1].split("/")[0]
@@ -49,6 +54,7 @@ with open("/opt/grafana/conf/defaults.ini", "w") as config_file:
   SSL_CERT=ssl_cert,
   SSL_KEY=ssl_key,
   WEB_URL=web_url,
+  LOG_LEVEL=log_level,
   WEB_DOMAIN=web_domain,
   FORCE_DOMAIN=force_domain,
   HASSIO_URL=hassio_url,
