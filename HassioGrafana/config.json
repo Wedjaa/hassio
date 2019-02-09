@@ -1,6 +1,6 @@
 {
   "name": "Hassio Grafana",
-  "version": "5.0.4.10",
+  "version": "5.4.3",
   "webui": "[PROTO:ssl]://[HOST]:[PORT:3000]",
   "slug": "grafana",
   "description": "An addon that packs Grafana and InfluxDB",
@@ -18,11 +18,13 @@
   "options": {
     "ssl": false,
     "username": "admin",
-    "password": "password",
+    "password": "hassio",
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem",
-    "external_url": "https://grafana.duckdns.org:3000/",
-    "force_domain": false, 
+    "grafana_ext_url": "https://grafana/",
+    "grafana_port": "3000",
+    "hassio_ext_url": "https://hassio/",
+    "enforce_domain": true, 
     "grafana_plugins": ["grafana-worldmap-panel"
       , "grafana-piechart-panel"
       , "briangann-gauge-panel"
@@ -37,8 +39,10 @@
     "password": "str",
     "certfile": "str",
     "keyfile": "str",
-    "external_url": "str",
-    "force_domain": "bool",
+    "grafana_ext_url": "str",
+    "grafana_port": "str",
+    "hassio_ext_url": "str",
+    "enforce_domain": "bool",
     "grafana_plugins": ["str"]
   },
   "timeout": 20

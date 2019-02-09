@@ -42,7 +42,7 @@ domain = {WEB_DOMAIN}
 enforce_domain = {FORCE_DOMAIN}
 
 # The full public facing url
-root_url = %(protocol)s://%(domain)s:%(http_port)s/
+root_url = {WEB_URL}
 
 # Log web requests
 router_logging = false
@@ -276,12 +276,12 @@ allowed_organizations =
 #################################### Generic OAuth #######################
 [auth.generic_oauth]
 name = OAuth
-enabled = false
+enabled = true
 allow_sign_up = true
-client_id = some_id
-client_secret = some_secret
+client_id = %(root_url)s
+client_secret = %(root_url)s
 scopes = user:email
-auth_url =
+auth_url = {HASSIO_URL}/auth/authorize
 token_url =
 api_url =
 team_ids =

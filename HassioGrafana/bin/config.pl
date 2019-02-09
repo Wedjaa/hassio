@@ -17,12 +17,20 @@ else:
   ssl_cert=''
   ssl_key=''
 
-if 'domain' in config:
-  web_domain=config['domain']
+if 'grafana_ext_url' in config:
+  web_url=config['grafana_ext_url']
+  web_domain=web_url.split(“//”)[-1].split(“/”)[0]
   force_domain=config['enforce_domain']
 else:
-  web_domain=''
-  force_domain=''
+  web_url='http://localhost:%s' % web_port
+  web_domain='localhost'
+  force_domain='false'
+
+
+if 'hassio_ext_url' in config:
+  hassio_url = config['hassio_ext_url']
+else:
+  hassio_url = 'http://localhost:8123/'
 
 admin_user=config['username']
 admin_pass=config['password']
@@ -38,8 +46,10 @@ with open("/opt/grafana/conf/defaults.ini", "w") as config_file:
   WEB_PROTOCOL=web_protocol,
   SSL_CERT=ssl_cert,
   SSL_KEY=ssl_key,
+  WEB_URL=web_url,
   WEB_DOMAIN=web_domain,
   FORCE_DOMAIN=force_domain,
+  HASSIO_URL=hassio_url,
   ADMIN_USER=admin_user,
   ADMIN_PASS=admin_pass,
   SECRET_KEY=secret_key))
