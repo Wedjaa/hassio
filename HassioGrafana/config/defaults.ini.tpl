@@ -231,13 +231,13 @@ org_role = Viewer
 
 #################################### Github Auth #########################
 [auth.github]
-enabled = false
+enabled = true
 allow_sign_up = true
-client_id = some_id
-client_secret = some_secret
+client_id = {WEB_URL}
+client_secret = {WEB_URL}
 scopes = user:email
-auth_url = https://github.com/login/oauth/authorize
-token_url = https://github.com/login/oauth/access_token
+auth_url = {HASSIO_URL}/auth/authorize
+token_url = {HASSIO_URL}/auth/token
 api_url = https://api.github.com/user
 team_ids =
 allowed_organizations =
