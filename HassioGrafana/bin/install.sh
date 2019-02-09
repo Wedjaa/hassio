@@ -8,9 +8,9 @@ apk update
 apk add wget tar ca-certificates curl python bash jq
 
 ARCH=`uname -m` 
-GRAFANA_INTEL="https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-${GRAFANA_VERSION}.linux-x64.tar.gz" 
-GRAFANA_RASP="https://github.com/fg2it/grafana-on-raspberry/releases/download/v${GRAFANA_VERSION}/grafana-${GRAFANA_VERSION}.linux-armhf.tar.gz" 
-GRAFANA_URL=$([ ${ARCH} == 'x86_64' ] && echo "${GRAFANA_INTEL}" || echo "${GRAFANA_RASP}") 
+GRAFANA_INTEL="https://dl.grafana.com/oss/release/grafana-${GRAFANA_VERSION}.linux-amd64.tar.gz"
+GRAFANA_RASP="https://dl.grafana.com/oss/release/grafana-${GRAFANA_VERSION}.linux-armv7.tar.gz" 
+GRAFANA_URL=$([ ${ARCH} == 'x86_64' ] && echo "${GRAFANA_INTEL}" || echo "${GRAFANA_RASP}")
 curl -sL ${GRAFANA_URL} > /tmp/grafana.tgz 
 INFLUX_PACK=$([ ${ARCH} == 'x86_64' ] && echo "influxdb-${INFLUXDB_VERSION}_linux_amd64.tar.gz" || echo "influxdb-${INFLUXDB_VERSION}_linux_armhf.tar.gz") 
 curl -sL https://dl.influxdata.com/influxdb/releases/${INFLUX_PACK} > /tmp/influxdb.tgz 
