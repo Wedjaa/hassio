@@ -40,6 +40,8 @@ secret_key=''.join(random.choice(string.ascii_uppercase + string.digits) for _ i
 with open('/opt/grafana/conf/defaults.ini.tpl', 'r') as tpl_file:
   tpl_config = tpl_file.read()
 
+println("Filling template:\n%s\n" % tpl_config)
+
 with open("/opt/grafana/conf/defaults.ini", "w") as config_file:
   config_file.write(tpl_config.format(
   WEB_PORT=web_port,
@@ -53,4 +55,8 @@ with open("/opt/grafana/conf/defaults.ini", "w") as config_file:
   ADMIN_USER=admin_user,
   ADMIN_PASS=admin_pass,
   SECRET_KEY=secret_key))
+
+with open('/opt/grafana/conf/defaults.ini', 'r') as config_file:
+  final_config = config_file.read()
+  println("Filled configuration:\n%s\n" % final_config)
 

@@ -33,8 +33,6 @@ fi
 
 mkdir /data/dashboards
 
-cp /data/defaults.ini /opt/grafana/conf/defaults.ini
-
 ## Start Grafana
 /opt/grafana/grafana-server -homepath /opt/grafana
 
