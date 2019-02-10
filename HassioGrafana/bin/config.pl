@@ -55,6 +55,7 @@ secret_key=''.join(random.choice(string.ascii_uppercase + string.digits) for _ i
 with open('/opt/grafana/conf/defaults.ini.tpl', 'r') as tpl_file:
   tpl_config = tpl_file.read()
 
+print("\n\n<<-------------------------------------------->>\n")
 print("Filling template:\n%s\n" % tpl_config)
 
 with open("/opt/grafana/conf/defaults.ini", "w") as config_file:
@@ -79,5 +80,6 @@ with open("/opt/grafana/conf/defaults.ini", "w") as config_file:
 
 with open('/opt/grafana/conf/defaults.ini', 'r') as config_file:
   final_config = config_file.read()
+  print("\n\n<<-------------------------------------------->>\n")
   print("Filled configuration:\n%s\n" % final_config)
 
