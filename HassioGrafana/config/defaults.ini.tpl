@@ -276,15 +276,15 @@ allowed_organizations =
 #################################### Generic OAuth #######################
 [auth.generic_oauth]
 name = Home Assistant
-enabled = true
+enabled = {OAUTH_ENABLED}
 allow_sign_up = true
 send_client_credentials_via_post = true
-client_id = {WEB_URL}
-client_secret = {WEB_URL}
+client_id = {CLIENT_ID}
+client_secret = {CLIENT_SECRET}
 scopes = user:email
-auth_url = {HASSIO_URL}/auth/authorize
-token_url = {HASSIO_URL}/auth/token
-api_url =
+auth_url = {AUTHORIZE_URL}
+token_url = {TOKEN_URL}
+api_url = {USER_URL}
 team_ids =
 allowed_organizations =
 

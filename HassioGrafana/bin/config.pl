@@ -32,10 +32,20 @@ else:
   force_domain='false'
 
 
-if 'hassio_ext_url' in config:
-  hassio_url = config['hassio_ext_url']
+if 'enable_oauth' in config and config['enable_oauth']:
+  oauth_enabled = "true"
+  client_id = config['oauth_client']
+  client_secret = config['client_secret']
+  auth_url = config['auth_url']
+  token_url = config['token_url']
+  api_url = config['user_url']
 else:
-  hassio_url = 'http://localhost:8123/'
+  oauth_enabled = "false"
+  client_id = ''
+  client_secret = ''
+  auth_url = ''
+  token_url = ''
+  api_url = ''
 
 admin_user=config['username']
 admin_pass=config['password']
@@ -56,8 +66,13 @@ with open("/opt/grafana/conf/defaults.ini", "w") as config_file:
   WEB_URL=web_url,
   LOG_LEVEL=log_level,
   WEB_DOMAIN=web_domain,
+  OAUTH_ENABLED=oauth_enabled,
+  CLIENT_ID=client_id,
+  CLIENT_SECRET=client_secret,
+  AUTH_URL=auth_url,
+  TOKEN_URL=token_url,
+  API_URL=api_url,
   FORCE_DOMAIN=force_domain,
-  HASSIO_URL=hassio_url,
   ADMIN_USER=admin_user,
   ADMIN_PASS=admin_pass,
   SECRET_KEY=secret_key))

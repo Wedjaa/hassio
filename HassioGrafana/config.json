@@ -1,6 +1,6 @@
 {
   "name": "Hassio Grafana",
-  "version": "5.4.3.20",
+  "version": "5.4.3.25",
   "webui": "[PROTO:ssl]://[HOST]:[PORT:3000]",
   "slug": "grafana",
   "description": "An addon that packs Grafana and InfluxDB",
@@ -23,9 +23,14 @@
     "keyfile": "privkey.pem",
     "log_level": "info",
     "grafana_ext_url": "https://grafana/",
-    "grafana_port": "3000",
-    "hassio_ext_url": "https://hassio/",
     "enforce_domain": true, 
+    "grafana_port": "3000",
+    "enable_oauth": true,
+    "oauth_client": "grafana_client_id",
+    "client_secret": "grafana_client_secret",
+    "auth_url": "",
+    "token_url": "",
+    "user_url": "",
     "grafana_plugins": ["grafana-worldmap-panel"
       , "grafana-piechart-panel"
       , "briangann-gauge-panel"
@@ -43,8 +48,13 @@
     "log_level": "str",
     "grafana_ext_url": "str",
     "grafana_port": "str",
-    "hassio_ext_url": "str",
     "enforce_domain": "bool",
+    "enable_oauth": "bool",
+    "oauth_client": "str",
+    "client_secret": "str",
+    "auth_url": "str",
+    "token_url": "str",
+    "user_url": "str",
     "grafana_plugins": ["str"]
   },
   "timeout": 20
