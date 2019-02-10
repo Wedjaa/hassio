@@ -38,14 +38,14 @@ if 'enable_oauth' in config and config['enable_oauth']:
   client_secret = config['client_secret']
   auth_url = config['auth_url']
   token_url = config['token_url']
-  api_url = config['user_url']
+  user_url = config['user_url']
 else:
   oauth_enabled = "false"
   client_id = ''
   client_secret = ''
   auth_url = ''
   token_url = ''
-  api_url = ''
+  user_url = ''
 
 admin_user=config['username']
 admin_pass=config['password']
@@ -72,7 +72,7 @@ with open("/opt/grafana/conf/defaults.ini", "w") as config_file:
   CLIENT_SECRET=client_secret,
   AUTH_URL=auth_url,
   TOKEN_URL=token_url,
-  API_URL=api_url,
+  USER_URL=user_url,
   FORCE_DOMAIN=force_domain,
   ADMIN_USER=admin_user,
   ADMIN_PASS=admin_pass,
