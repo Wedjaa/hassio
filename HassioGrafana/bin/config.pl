@@ -3,6 +3,7 @@
 import json
 import random
 import string
+import os.path
 
 config = json.load(open('/data/options.json'))
 
@@ -58,6 +59,11 @@ with open('/opt/grafana/conf/defaults.ini.tpl', 'r') as tpl_file:
 print("\n\n<<-------------------------------------------->>\n")
 print("Filling template:\n%s\n" % tpl_config)
 
+target_config="/opt/grafana/conf/defaults.ini"
+
+if os.path.isfile("/opt/grafana/defaults.ini"):
+  target_config="/opt/grafana/defaults.ini"
+  
 with open("/opt/grafana/conf/defaults.ini", "w") as config_file:
   config_file.write(tpl_config.format(
   WEB_PORT=web_port,

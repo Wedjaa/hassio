@@ -29,6 +29,7 @@ then
   done
 fi
 
+echo "Reconfiguring Grafana"
 /usr/bin/config.pl
 
 ## Start Grafana
