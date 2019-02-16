@@ -3,7 +3,6 @@
 import json
 import random
 import string
-import os.path
 
 config = json.load(open('/data/options.json'))
 
@@ -56,12 +55,7 @@ secret_key=''.join(random.choice(string.ascii_uppercase + string.digits) for _ i
 with open('/opt/grafana/conf/defaults.ini.tpl', 'r') as tpl_file:
   tpl_config = tpl_file.read()
 
-target_config="/opt/grafana/conf/defaults.ini"
-
-if os.path.isfile("/opt/grafana/defaults.ini"):
-  target_config="/opt/grafana/defaults.ini"
-
-with open(target_config, "w") as config_file:
+with open("/opt/grafana/conf/defaults.ini", "w") as config_file:
   config_file.write(tpl_config.format(
   WEB_PORT=web_port,
   WEB_PROTOCOL=web_protocol,
@@ -81,5 +75,25 @@ with open(target_config, "w") as config_file:
   ADMIN_PASS=admin_pass,
   SECRET_KEY=secret_key))
 
-print("Filled configuration - %s\n" % target_config)
+with open("/opt/grafana/defaults.ini", "w") as config_file:
+  config_file.write(tpl_config.format(
+  WEB_PORT=web_port,
+  WEB_PROTOCOL=web_protocol,
+  SSL_CERT=ssl_cert,
+  SSL_KEY=ssl_key,
+  WEB_URL=web_url,
+  LOG_LEVEL=log_level,
+  WEB_DOMAIN=web_domain,
+  OAUTH_ENABLED=oauth_enabled,
+  CLIENT_ID=client_id,
+  CLIENT_SECRET=client_secret,
+  AUTH_URL=auth_url,
+  TOKEN_URL=token_url,
+  USER_URL=user_url,
+  FORCE_DOMAIN=force_domain,
+  ADMIN_USER=admin_user,
+  ADMIN_PASS=admin_pass,
+  SECRET_KEY=secret_key))
+
+print("Configuration Completed!\n")
 

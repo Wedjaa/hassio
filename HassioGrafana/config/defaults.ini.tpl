@@ -493,3 +493,6 @@ public_url =
 [external_image_storage.gcs]
 key_file =
 bucket =
+
+[panels]
+disable_sanitize_html = true
