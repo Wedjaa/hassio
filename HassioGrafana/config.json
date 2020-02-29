@@ -1,5 +1,11 @@
 {
   "name": "Hassio Grafana",
+  "arch": [
+    "amd64",
+    "i386",
+    "armv7",
+    "aarch64"
+  ],
   "version": "6.0.0.2",
   "webui": "[PROTO:ssl]://[HOST]:[PORT:3000]",
   "slug": "grafana",
